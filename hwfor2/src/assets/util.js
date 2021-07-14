@@ -19,6 +19,6 @@ const currency_symbols = {
 
 export default {
     convertCurrencyToSymbol(value){
-        return currency_symbols[value] ? currency_symbols[value] : "asdas"
+        return currency_symbols[value] ? currency_symbols[value] : ""
     }
 }

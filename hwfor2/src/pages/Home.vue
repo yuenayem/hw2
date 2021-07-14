@@ -1,6 +1,6 @@
 <template>
   <div class="item-list">
-    <item v-for="item in items" :key="item.id" :item="item"></item>
+    <item v-for="item in items.data" :key="item.id" :item="item"></item>
   </div>
 </template>
 
@@ -18,13 +18,24 @@ export default {
     };
   },
   mounted() {
-    axios.get("https://nonchalant-fang.glitch.me/listing").then(res => {
-      this.items = res.data;
-    });
+    this.getItems();
+  },
+  methods: {
+    async getItems() {
+      try {
+        this.items = await axios.get(
+          "https://nonchalant-fang.glitch.me/listing"
+        );
+      } catch (e) {
+        console.error(e);
+      }
+    }
   }
 };
 </script>
+<style lang="scss">
 
+</style>
 <style lang="scss" scoped>
 .item-list {
   display: flex;
