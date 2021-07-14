@@ -1,6 +1,6 @@
 import { expect } from 'chai'
 import {createLocalVue, shallowMount } from '@vue/test-utils'
-import Home from '@/pages/Home.vue'
+// import Home from '@/pages/Home.vue'
 import Item from '@/components/Item.vue'
 import Vuex from 'vuex'
 import VueRouter from 'vue-router'
@@ -29,6 +29,13 @@ describe('Home.vue', () => {
       propsData: {item}
     })
     expect(wrapper.find("img").attributes()['src']).to.equal(item.image)
+  });
+
+  it('item has price equal to the example when passed', () => {
+    const wrapper = shallowMount(Item, {
+      propsData: {item}
+    })
+    expect(wrapper.find(".price").text()).to.include(item.price)
   });
 
   it('renders add-basket redirects when passed', () => {

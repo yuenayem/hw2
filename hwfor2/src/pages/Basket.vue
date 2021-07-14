@@ -2,7 +2,7 @@
   <div class="my-cart">
     <div v-show="isAlertVisible" class="alert" ref="alert">{{alertMessage}}</div>
     <div v-if="items.length < 1" class="empty-cart">
-      Your cart is currently empty. In order to order, add items in to your cart
+      Your cart is currently empty. In order to place an order, add items in to your cart
     </div>
     <div v-for="(item, index) in items" :key="item.id" class="item-container">
       <div class="left-section">
@@ -33,7 +33,7 @@
 
     <div class="order-container">
       <button class="operation-button" @click="() => {this.$router.push({path: 'home'})}"> « Continue Shopping</button>
-      <button class="operation-button order" :disabled="items.length < 1" @click="order">Order</button>
+      <button class="operation-button order" :disabled="items.length < 1" @click="order">Place Order</button>
     </div>
   </div>
 </template>
