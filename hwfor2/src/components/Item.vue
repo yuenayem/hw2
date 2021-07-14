@@ -37,7 +37,7 @@ export default {
       let itemsInCart = this.$store.state.itemsInCart;
       let foundIndex = itemsInCart.findIndex(element => element.id === item.id);
       if (foundIndex === -1) {
-        item.amount = 0;
+        item.amount = 1;
         itemsInCart.push(item);
         this.$store.commit(UPDATE_CART_ITEMS, itemsInCart);
         this.$router.push({ path: "basket" });
